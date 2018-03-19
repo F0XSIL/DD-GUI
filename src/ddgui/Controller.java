@@ -74,7 +74,7 @@ public class Controller {
         if (bsCheckBox.isSelected()) params += " --iterations=" + String.format("%.0f", bsSpinner.getValue()) + " ";
         if (countCheckBox.isSelected()) params += " --random-source=" + String.format("%.0f", countSpinner.getValue()) + " ";
 
-        String command = "dd " + "if=\"" + inputFilePathTextField.getText() + "\" off=\""+ outputFilePathTextField.getText() + "\"" + params;
+        String command = "dd " + "if=\"" + inputFilePathTextField.getText() + "\" of=\""+ outputFilePathTextField.getText() + "\"" + params;
 
         runButton.setDisable(true);
         Process dd = Runtime.getRuntime().exec(command);
