@@ -8,8 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ddgui.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ddgui.Controller">
    <children>
       <TextField fx:id="inputFilePathTextField" layoutX="151.0" layoutY="58.0" prefHeight="42.0" prefWidth="288.0" />
       <Button fx:id="inputFilePathButton" layoutX="460.0" layoutY="58.0" mnemonicParsing="false" onAction="#inputFilePathButtonOnAction" prefHeight="42.0" prefWidth="78.0" text="browse" />
@@ -18,10 +17,10 @@
       <Label layoutX="45.0" layoutY="58.0" prefHeight="42.0" prefWidth="78.0" text="Input file:" textAlignment="CENTER" />
       <Label layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="78.0" text="Output file:" textAlignment="CENTER" />
       <Button fx:id="runButton" layoutX="215.0" layoutY="341.0" mnemonicParsing="false" onAction="#runButtonOnAction" prefHeight="69.0" prefWidth="171.0" text="Run" />
-      <TextArea fx:id="logTextField" layoutX="15.0" layoutY="427.0" prefHeight="253.0" prefWidth="572.0" />
+      <TextArea fx:id="logTextArea" editable="false" layoutX="15.0" layoutY="427.0" prefHeight="253.0" prefWidth="572.0" />
       <CheckBox fx:id="bsCheckBox" layoutX="151.0" layoutY="211.0" mnemonicParsing="false" onAction="#bsCheckBoxOnAction" text="Bytes at time (bs)" />
-      <Spinner fx:id="bsSpinner" disable="true" layoutX="316.0" layoutY="204.0" prefHeight="33.0" prefWidth="131.0" min="0" max="999999999999999999999" />
+      <Spinner fx:id="bsSpinner" amountToStepBy="1" disable="true" editable="true" initialValue="512" layoutX="316.0" layoutY="204.0" max="999999999999999999999" min="0" prefHeight="33.0" prefWidth="131.0" />
       <CheckBox fx:id="countCheckBox" layoutX="151.0" layoutY="271.0" mnemonicParsing="false" onAction="#countCheckBoxOnAction" text="Copy only specified number of blocks" />
-      <Spinner fx:id="countSpinner" disable="true" layoutX="437.0" layoutY="264.0" prefHeight="33.0" prefWidth="131.0" min="0" max="999999999999999999999" />
+      <Spinner fx:id="countSpinner" amountToStepBy="1" disable="true" editable="true" initialValue="1" layoutX="437.0" layoutY="264.0" max="999999999999999999999" min="0" prefHeight="33.0" prefWidth="131.0" />
    </children>
 </AnchorPane>

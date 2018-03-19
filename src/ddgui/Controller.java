@@ -62,7 +62,7 @@ public class Controller {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Select input files.");
         File file = chooser.showOpenDialog(new Stage());
-        inputFilePathButton.setText(file.getAbsolutePath());
+        inputFilePathTextField.setText(file.getAbsolutePath());
     }
 
     @FXML
@@ -71,10 +71,10 @@ public class Controller {
         String toLogTextArea = new String();
         String params = new String();
 
-        if (bsCheckBox.isSelected()) params += "--iterations=" + bsSpinner.getValue().toString() + " ";
-        if (countCheckBox.isSelected()) params += "--random-source=" + countSpinner.getValue().toString() + " ";
+        if (bsCheckBox.isSelected()) params += " --iterations=" + String.format("%.0f", bsSpinner.getValue()) + " ";
+        if (countCheckBox.isSelected()) params += " --random-source=" + String.format("%.0f", countSpinner.getValue()) + " ";
 
-        String command = "dd " + "if=" + inputFilePathTextField.getText();
+        String command = "dd " + "if=\"" + inputFilePathTextField.getText() + "\" off=\""+ outputFilePathTextField.getText() + "\"" + params;
 
         runButton.setDisable(true);
         Process dd = Runtime.getRuntime().exec(command);
