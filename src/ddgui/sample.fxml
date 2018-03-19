@@ -18,7 +18,7 @@
       <Label layoutX="45.0" layoutY="58.0" prefHeight="42.0" prefWidth="78.0" text="Input file:" textAlignment="CENTER" />
       <Label layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="78.0" text="Output file:" textAlignment="CENTER" />
       <Button fx:id="runButton" layoutX="215.0" layoutY="341.0" mnemonicParsing="false" onAction="#runButtonOnAction" prefHeight="69.0" prefWidth="171.0" text="Run" />
-      <TextArea fx:id="logTextField" layoutX="15.0" layoutY="427.0" prefHeight="253.0" prefWidth="572.0" />
+      <TextArea fx:id="logTextArea" layoutX="15.0" layoutY="427.0" prefHeight="253.0" prefWidth="572.0" />
       <CheckBox fx:id="bsCheckBox" layoutX="151.0" layoutY="211.0" mnemonicParsing="false" onAction="#bsCheckBoxOnAction" text="Bytes at time (bs)" />
       <Spinner fx:id="bsSpinner" disable="true" layoutX="316.0" layoutY="204.0" prefHeight="33.0" prefWidth="131.0" min="0" max="999999999999999999999" />
       <CheckBox fx:id="countCheckBox" layoutX="151.0" layoutY="271.0" mnemonicParsing="false" onAction="#countCheckBoxOnAction" text="Copy only specified number of blocks" />
