@@ -1,0 +1,26 @@
+#!/bin/bash
+
+rm -R /opt/dd-gui || :
+
+mkdir /opt/dd-gui
+cp ./dd-gui_kdesu /opt/dd-gui
+cp ./dd-gui_gksudo /opt/dd-gui
+cp ./dd-gui.jar /opt/dd-gui
+cp ./dd-gui.png /opt/dd-gui
+
+echo "Choose your graphical root provider:"
+echo "1 gksudo"
+echo "2 kdesu"
+
+read -p "$ " -n 1 input 
+
+rm /usr/bin/dd-gui || :
+
+if [ $input == "1" ]; then
+    ln -s /opt/dd-gui/dd-gui_gksudo /usr/bin/dd-gui
+elif [ $input == "2" ]; then
+    ln -s /opt/dd-gui/dd-gui_kdesu /usr/bin/dd-gui
+else
+    echo "Failed"
+    exit 1
+fi

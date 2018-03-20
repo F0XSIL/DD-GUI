@@ -1,0 +1,2 @@
+#!/bin/bash
+kdesu -c "java -jar /opt/dd-gui/dd-gui.jar"
