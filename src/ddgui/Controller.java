@@ -66,24 +66,28 @@ public class Controller {
     }
 
     @FXML
-    void runButtonOnAction(ActionEvent event) throws IOException {
+    void runButtonOnAction(ActionEvent event) throws IOException, InterruptedException {
         logTextArea.clear();
         String toLogTextArea = new String();
         String params = new String();
 
-        if (bsCheckBox.isSelected()) params += " --iterations=" + String.format("%.0f", bsSpinner.getValue()) + " ";
-        if (countCheckBox.isSelected()) params += " --random-source=" + String.format("%.0f", countSpinner.getValue()) + " ";
+        if (bsCheckBox.isSelected()) params += " bs=" + String.format("%.0f", bsSpinner.getValue()) + " ";
+        if (countCheckBox.isSelected()) params += " count=" + String.format("%.0f", countSpinner.getValue()) + " ";
 
-        String command = "dd " + "if=\"" + inputFilePathTextField.getText() + "\" of=\""+ outputFilePathTextField.getText() + "\"" + params;
+        String command = "dd " + "if=\"" + inputFilePathTextField.getText() + "\" of=\""+ outputFilePathTextField.getText() + "\"" + params + " status=progress";
 
         runButton.setDisable(true);
-        Process dd = Runtime.getRuntime().exec(command);
+
+        Process dd = Runtime.getRuntime().exec(new String[]{"/bin/sh","-c",command});
 
         logTextArea.setText("Running " + command + "\n");
 
         InputStream out = dd.getInputStream();
 
         toLogTextArea = logTextArea.getText();
+
+        dd.waitFor();
+
         int c;
         while ((c = out.read()) != -1) {
             toLogTextArea += (char) c;
